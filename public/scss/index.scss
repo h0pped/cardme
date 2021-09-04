@@ -1,0 +1,52 @@
+@use "fonts";
+@use "colors";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: fonts.$font-family;
+}
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+#title-container {
+  .title,
+  .subtitle {
+    color: colors.$alice-color;
+  }
+  height: 100vh;
+  width: 100vw;
+  background: colors.$dark-blue-color;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 2rem;
+  scroll-snap-align: start;
+}
+#generate-card-container {
+  height: 100vh;
+  width: 100vw;
+  background: colors.$blue-color;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #card {
+    font-size: 5rem;
+    color: red;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 1s ease;
+    transform: translateY(-30%);
+    &.hidden {
+      opacity: 0;
+      transform: translateY(30%);
+    }
+  }
+}

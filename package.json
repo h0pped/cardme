@@ -1,0 +1,23 @@
+{
+  "name": "cards-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js -e js,html,hbs,css",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass -watch scss -o css"
+  },
+  "author": "awri.l",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "node-sass": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
