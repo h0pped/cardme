@@ -8,6 +8,8 @@
 }
 body {
   font-family: fonts.$font-family;
+  background: colors.$title-page-color;
+  transition: background-color 1s ease;
 }
 .container {
   scroll-snap-type: y mandatory;
@@ -17,12 +19,12 @@ body {
 #title-container {
   .title,
   .subtitle {
-    color: colors.$alice-color;
+    color: colors.$title-page-text-color;
   }
   height: 100vh;
   width: 100vw;
-  background: colors.$dark-blue-color;
   display: flex;
+
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
@@ -33,20 +35,40 @@ body {
 #generate-card-container {
   height: 100vh;
   width: 100vw;
-  background: colors.$blue-color;
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
   #card {
-    font-size: 5rem;
-    color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid colors.$dark-color;
+    padding: 1rem 0.5rem;
+
     opacity: 1;
     transition: opacity 0.5s ease, transform 1s ease;
     transform: translateY(-30%);
     &.hidden {
       opacity: 0;
       transform: translateY(30%);
+    }
+
+    .card-image {
+      label {
+        display: block;
+        width: 150px;
+        height: 150px;
+        border: 1px solid colors.$dark-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      input {
+        display: none;
+      }
     }
   }
 }
