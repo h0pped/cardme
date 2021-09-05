@@ -7,7 +7,7 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js -e js,html,hbs,css",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass -watch scss -o css",
+    "scss": "sass --watch public/scss:public/css",
     "release": "standard-version"
   },
   "author": "awri.l",

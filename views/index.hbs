@@ -16,13 +16,79 @@
       </div>
       <div id="generate-card-container">
         <div id="card" class="hidden">
-          <div class="card-image">
+          <div class="card-block">
+            <div class="card-block-content">
+              <h3>Hello!</h3>
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="card-block-content">
+              <h3>My name is</h3>
+              <input
+                type="text"
+                name="name"
+                id="nameInput"
+                placeholder=" John Johnson"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="card-block-content">
+              <h3>I work as</h3>
+              <input
+                type="text"
+                name="job"
+                id="jobInput"
+                placeholder="Software Engineer"
+              />
+            </div>
+              <div class="card-block-content">
+              <h3>In</h3>
+              <input
+                type="text"
+                name="company"
+                id="companyInput"
+                placeholder="Company's name"
+              />
+            </div>
+            </div>
+          <div class="card-block">
+            <div class="card-block-content">
+            <span name="description" id="description" role="textarea" placeholder="Describe yourself" contenteditable="true"></span>
+            </div>
+          </div>
+          <div class="card-block block-stretch">
+            <div class="card-block-content">
+              <h3>Email:</h3>
+              <input
+                type="email"
+                name="email"
+                id="emailInput"
+                placeholder="johnjohnson@gmail.com"
+              />
+            </div>
+          </div>
+          <div class="card-block ">
+            <div class="card-block-content">
+              <h3>Phone:</h3>
+              <input
+                type="tel"
+                name="number"
+                id="numberInput"
+                placeholder="+48 788 695 555"
+              />
+            </div>
+          </div>
+          </div>
+
+          {{! <div class="card-image">
             <label for="imageinput" class="image-label">
               Image upload
             </label>
             <input type="file" name="imageinput" id="imageinput" />
-          </div>
-          <div class="card-name">
+          </div> }}
+          {{! <div class="card-name">
             <label for="name">How can we call you?</label>
             <input
               type="text"
@@ -54,7 +120,7 @@
             <input
               type="text"
               name="companyPosition"
-              id="companyPositionInput"
+              id="companyPos`itionInput"
               placeholder="UX/UI Designer"
             />
           </div>
@@ -66,7 +132,7 @@
               id="descriptionInput"
               placeholder="I am cool guy"
             ></textarea>
-          </div>
+          </div> }}
 
         </div>
       </div>
