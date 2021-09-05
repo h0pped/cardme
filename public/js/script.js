@@ -3,7 +3,7 @@ const titleContainer = document.querySelector("#title-container");
 const titleWrapper = document.querySelector(".title-wrap");
 const readyCardContainer = document.querySelector("#ready-card-container");
 const body = document.querySelector("body");
-const card = document.querySelector("#card");
+const card = document.querySelector("#generate-card");
 const submitBtn = document.querySelector(".submit-btn");
 let cardObserverOptions = {
   root: null,
@@ -15,10 +15,15 @@ let titleObserverOptions = {
   rootMargin: "0px",
   threshold: 0.5,
 };
+let generatedObserverOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.2,
+};
 function cardObserver(entries, observer) {
   console.log(...entries);
   if (entries[0].isIntersecting) {
-    body.style.backgroundColor = "#b99c85";
+    body.style.backgroundColor = "#CDEEFF";
     card.classList.remove("hidden");
   } else {
     card.classList.add("hidden");
@@ -27,9 +32,16 @@ function cardObserver(entries, observer) {
 function titleObserverFunc(entries, observer) {
   if (entries[0].isIntersecting) {
     titleWrapper.classList.remove("hidden");
-    body.style.backgroundColor = "#CCB3A3";
+    body.style.backgroundColor = "#DBF3EE";
   } else {
     titleWrapper.classList.add("hidden");
+  }
+}
+function generatedObserverFunc(entries, observer) {
+  console.log("LAST INTERSECTION");
+
+  if (entries[0].isIntersecting) {
+    body.style.backgroundColor = "#D7FFE3";
   }
 }
 let observer = new IntersectionObserver(cardObserver, cardObserverOptions);
@@ -37,9 +49,14 @@ let titleObserver = new IntersectionObserver(
   titleObserverFunc,
   titleObserverOptions
 );
+let generatedObserver = new IntersectionObserver(
+  generatedObserverFunc,
+  generatedObserverOptions
+);
 
 observer.observe(cardContainer);
 titleObserver.observe(titleContainer);
+generatedObserver.observe(readyCardContainer);
 
 submitBtn.addEventListener("click", (e) => {
   showReadyCardContainer();
@@ -47,9 +64,6 @@ submitBtn.addEventListener("click", (e) => {
     behavior: "smooth",
   });
 });
-
 function showReadyCardContainer() {
   readyCardContainer.classList.remove("hidden");
 }
-
-// background: colors.$card-page-color;
