@@ -5,6 +5,8 @@ const readyCardContainer = document.querySelector("#ready-card-container");
 const body = document.querySelector("body");
 const card = document.querySelector("#generate-card");
 const submitBtn = document.querySelector(".submit-btn");
+
+const description = document.querySelector("#description");
 let cardObserverOptions = {
   root: null,
   rootMargin: "0px",

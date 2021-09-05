@@ -129,6 +129,7 @@ body {
 }
 .card .card-block span[contenteditable=true] {
   max-width: 100%;
+  white-space: pre-line;
   display: inline-block;
   min-height: 150px;
   width: 300px;
