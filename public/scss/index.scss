@@ -55,8 +55,8 @@ body {
   margin: 1rem 0;
   border-radius: 25px;
   align-self: center;
-  background: #b9daeb;
-  box-shadow: 6px 6px 12px #9bb7c5, -6px -6px 12px #d7fdff;
+  background: #ccdbfd;
+  box-shadow: 5px 5px 10px #b6c3e1, -5px -5px 10px #e2f3ff;
   width: 35%;
   display: flex;
   flex-direction: column;
@@ -87,8 +87,8 @@ body {
   .card-block {
     border-radius: 27px;
     max-width: 100%;
-    background: #b9daeb;
-    box-shadow: 5px 5px 8px #a7c4d4, -5px -5px 8px #ccf0ff;
+    background: #c9d9fd;
+    box-shadow: 8px 8px 16px #bfcef0, -8px -8px 16px #d3e4ff;
     padding: 1rem 2rem 1rem 1.5rem;
     text-align: left;
     margin-bottom: 1rem;
@@ -107,8 +107,8 @@ body {
       max-width: 100%;
       border: none;
       border-radius: 10px;
-      background: #b9daeb;
-      box-shadow: 5px 5px 8px #a7c4d4, -5px -5px 8px #ccf0ff;
+      background: #c9d9fd;
+      box-shadow: 8px 8px 16px #b7c5e6, -8px -8px 16px #dbedff;
       padding: 0.5rem 0.5rem 0.5rem 1rem;
       font-size: 1.2rem;
       margin-left: 0.5rem;
@@ -118,7 +118,7 @@ body {
       }
       &:focus {
         outline: none;
-        box-shadow: inset 6px 6px 6px #aac9d8, inset -6px -6px 6px #c8ebfe;
+        box-shadow: inset 9px 9px 18px #b3c1e1, inset -9px -9px 18px #dff1ff;
       }
     }
     span {
@@ -129,8 +129,8 @@ body {
         min-height: 150px;
         width: 300px;
         border-radius: 10px;
-        background: #b9daeb;
-        box-shadow: 6px 6px 6px #aac9d8, -6px -6px 6px #c8ebfe;
+        background: #c9d9fd;
+        box-shadow: 8px 8px 12px #bdccee, -8px -8px 12px #d5e6ff;
         padding: 0.5rem 0.5rem 0.5rem 1rem;
         font-size: 1.2rem;
 
@@ -141,15 +141,16 @@ body {
 
         &:focus {
           outline: none;
-          box-shadow: inset 6px 6px 6px #aac9d8, inset -6px -6px 6px #c8ebfe;
+          box-shadow: inset 9px 9px 18px #b3c1e1, inset -9px -9px 18px #dff1ff;
         }
       }
     }
     &.submit-btn {
+      border-radius: 10px;
       text-align: center;
       font-size: 1rem;
       &:active {
-        box-shadow: inset 6px 6px 6px #aac9d8, inset -6px -6px 6px #c8ebfe;
+        box-shadow: inset 9px 9px 18px #b3c1e1, inset -9px -9px 18px #dff1ff;
       }
     }
 
@@ -189,24 +190,24 @@ body {
   }
   .card {
     width: 100%;
-    background: #c6eed2;
-    box-shadow: 6px 6px 6px #b6dbc1, -6px -6px 6px #d6ffe3;
+    background: #c9d9fd;
+    box-shadow: 5px 5px 13px #bfcef0, -5px -5px 13px #d3e4ff;
     .card-block {
-      background: #c6eed2;
-      box-shadow: 6px 6px 6px #b6dbc1, -6px -6px 6px #d6ffe3;
+      background: #c9d9fd;
+      box-shadow: 8px 8px 16px #bfcef0, -8px -8px 16px #d3e4ff;
     }
   }
   #add-links-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
   }
 
   .links-button {
     border-radius: 50%;
-    background: #c6eed2;
-    box-shadow: 5px 5px 10px #b4d9bf, -5px -5px 10px #d8ffe5;
+    background: #c9d9fd;
+    box-shadow: 8px 8px 16px #bfcef0, -8px -8px 16px #d3e4ff;
     width: 5rem;
     height: 5rem;
     border: none;

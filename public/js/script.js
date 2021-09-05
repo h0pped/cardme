@@ -23,7 +23,6 @@ let generatedObserverOptions = {
 function cardObserver(entries, observer) {
   console.log(...entries);
   if (entries[0].isIntersecting) {
-    body.style.backgroundColor = "#CDEEFF";
     card.classList.remove("hidden");
   } else {
     card.classList.add("hidden");
@@ -32,7 +31,6 @@ function cardObserver(entries, observer) {
 function titleObserverFunc(entries, observer) {
   if (entries[0].isIntersecting) {
     titleWrapper.classList.remove("hidden");
-    body.style.backgroundColor = "#DBF3EE";
   } else {
     titleWrapper.classList.add("hidden");
   }
@@ -41,7 +39,6 @@ function generatedObserverFunc(entries, observer) {
   console.log("LAST INTERSECTION");
 
   if (entries[0].isIntersecting) {
-    body.style.backgroundColor = "#D7FFE3";
   }
 }
 let observer = new IntersectionObserver(cardObserver, cardObserverOptions);
