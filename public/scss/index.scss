@@ -21,6 +21,15 @@ body {
   .subtitle {
     color: colors.$title-page-text-color;
   }
+  .title-wrap {
+    position: absolute;
+    z-index: -1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    &.hidden {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -57,7 +66,7 @@ body {
     transition: opacity 0.5s ease, transform 1s ease;
     &.hidden {
       opacity: 0;
-      transform: translateY(100px);
+      transform: translateY(1000px);
     }
 
     .card-image {

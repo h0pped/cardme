@@ -39,6 +39,15 @@ body {
 #title-container .subtitle {
   color: #51424e;
 }
+#title-container .title-wrap {
+  position: absolute;
+  z-index: -1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#title-container .title-wrap.hidden {
+  opacity: 0;
+  transform: translateY(-100px);
+}
 
 #generate-card-container {
   min-height: 100vh;
@@ -67,7 +76,7 @@ body {
 }
 #generate-card-container #card.hidden {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(1000px);
 }
 #generate-card-container #card .card-image label {
   display: block;
