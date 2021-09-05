@@ -9,11 +9,10 @@
   </head>
   <body>
     <div class="container">
-
       <div id="title-container">
         <div class="title-wrap">
-        <h1 class="title">Introduce yourself</h1>
-        <h2 class="subtitle">But in a quick way</h2>
+          <h1 class="title">Introduce yourself</h1>
+          <h2 class="subtitle">But in a quick way</h2>
         </div>
       </div>
       <div id="generate-card-container">
@@ -30,7 +29,7 @@
                 type="text"
                 name="name"
                 id="nameInput"
-                placeholder=" John Johnson"
+                placeholder="John Johnson"
                 autocomplete="off"
               />
             </div>
@@ -45,7 +44,7 @@
                 placeholder="Software Engineer"
               />
             </div>
-              <div class="card-block-content">
+            <div class="card-block-content">
               <h3>In</h3>
               <input
                 type="text"
@@ -54,10 +53,16 @@
                 placeholder="Company's name"
               />
             </div>
-            </div>
+          </div>
           <div class="card-block">
             <div class="card-block-content">
-            <span name="description" id="description" role="textarea" placeholder="Describe yourself" contenteditable="true"></span>
+              <span
+                name="description"
+                id="description"
+                role="textarea"
+                placeholder="Describe yourself"
+                contenteditable="true"
+              ></span>
             </div>
           </div>
           <div class="card-block block-stretch">
@@ -71,7 +76,7 @@
               />
             </div>
           </div>
-          <div class="card-block ">
+          <div class="card-block">
             <div class="card-block-content">
               <h3>Phone:</h3>
               <input
@@ -82,8 +87,16 @@
               />
             </div>
           </div>
-          </div>
+          <button
+            type="submit"
+            class="card-block block-stretch-full submit-btn"
+          >
+            Create a card!
+          </button>
         </div>
+      </div>
+      <div id="ready-card-container" class="hidden">
+        <h1>generated</h1>
       </div>
     </div>
     <script src="/js/script.js"></script>
