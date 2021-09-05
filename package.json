@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js -e js,html,hbs,css",
+    "dev": "env-cmd -f ./config/dev.env  nodemon src/index.js -e js,html,hbs,css",
     "test": "echo \"Error: no test specified\" && exit 1",
     "scss": "sass --watch public/scss:public/css",
     "release": "standard-version"
@@ -16,9 +16,12 @@
     "aos": "^2.3.4",
     "express": "^4.17.1",
     "hbs": "^4.1.2",
-    "node-sass": "^6.0.1"
+    "mongoose": "^6.0.4",
+    "node-sass": "^6.0.1",
+    "validator": "^13.6.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "nodemon": "^2.0.12",
     "standard-version": "^9.3.1"
   }
