@@ -186,12 +186,18 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+#ready-card-container .left {
+  width: 50%;
+}
+#ready-card-container .right {
+  width: 50%;
+}
 #ready-card-container.hidden {
   visibility: hidden;
   display: none;
 }
 #ready-card-container .card {
-  width: 100%;
+  width: 70%;
   background: #c9d9fd;
   box-shadow: 5px 5px 13px #bfcef0, -5px -5px 13px #d3e4ff;
 }
@@ -199,11 +205,14 @@ body {
   background: #c9d9fd;
   box-shadow: 8px 8px 16px #bfcef0, -8px -8px 16px #d3e4ff;
 }
+#ready-card-container .card .card-block h3 {
+  word-break: break-all;
+}
 #ready-card-container #add-links-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  width: 70%;
 }
 #ready-card-container .links-button {
   border-radius: 50%;
