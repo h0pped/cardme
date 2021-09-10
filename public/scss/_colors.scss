@@ -1,6 +1,23 @@
 $title-page-color: #e2eafc;
-$title-page-text-color: #1b3b48;
-$card-text-color: #1b3b48;
+$title-page-text-color: #885b79;
+$card-text-color: #6c415e;
 $card-page-color: #e2eafc;
 $dark-color: #191919;
 $generated-card-page-color: #e6e7ed;
+
+$title-background: linear-gradient(to right top, #d9a7c7, #fceed6);
+$title-card-background: linear-gradient(
+  to right bottom,
+  rgba(255, 255, 255, 0.5),
+  rgba(255, 255, 255, 0.3)
+);
+$title-card-circles-background: linear-gradient(
+  to right bottom,
+  rgba(255, 255, 255, 0.8),
+  rgba(255, 255, 255, 0.3)
+);
+$title-card-block-background: linear-gradient(
+  to right bottom,
+  rgba(255, 255, 255, 1),
+  rgba(255, 255, 255, 0.2)
+);

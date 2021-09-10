@@ -1,6 +1,7 @@
 const cardContainer = document.querySelector("#generate-card-container");
 const titleContainer = document.querySelector("#title-container");
 const titleWrapper = document.querySelector(".title-wrap");
+
 const readyCardContainer = document.querySelector("#ready-card-container");
 const body = document.querySelector("body");
 const card = document.querySelector("#generate-card");
@@ -120,7 +121,7 @@ const generateDescriptionBlocks = (description) => {
 };
 const createResultCard = (data) => {
   let cardEl = document.createElement("div");
-  cardEl.classList.add("card");
+  cardEl.classList.add("glass-card");
 
   //NAME BLOCK
   cardEl.innerHTML += `
@@ -137,12 +138,14 @@ const createResultCard = (data) => {
   `;
 
   // JOB BLOCK
-  if (data.job)
+  if (data.job_title)
     cardEl.innerHTML += `
   <div class="card-block">
     <div class="card-block-content">
-      <h3>I am ${data.job} ${
-      data.company_name.length != 0 ? `in ${data.company_name}` : ""
+      <h3>I am ${data.job_title} ${
+      data.company_name && data.company_name?.length != 0
+        ? `in ${data.company_name}`
+        : ""
     }</h3>
     </div>
   </div>
