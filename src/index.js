@@ -28,6 +28,26 @@ app.post("/", async (req, res) => {
     res.send({ err });
   }
 });
+app.get("/:id", async (req, res) => {
+  try {
+    const card = await CardModel.findById(req.params.id);
+    if (card) {
+      res.render("card", {
+        name: card.name,
+        job_title: card.job_title,
+        company_name: card.company_name,
+        description: card.description.split("\n"),
+        phone: card.phone,
+        email: card.email,
+        telegram: card.telegram,
+      });
+    } else {
+      res.status(404).redirect("/");
+    }
+  } catch (err) {
+    res.status(404).redirect("/");
+  }
+});
 
 app.listen(port, () => {
   console.log(`Listening on ${port}`);

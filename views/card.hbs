@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CardMe!</title>
+
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/cardpage.css" />
+  </head>
+  <body>
+    {{card}}
+    <section id="main-container">
+      <div class="left-container">
+        <div class="glass-card">
+          <div class="card-block">
+            <div class="card-block-content">
+              <h3>Hi!</h3>
+            </div>
+          </div>
+          <div class="card-block">
+            <div class="card-block-content">
+              <h3>My name is {{name}}!</h3>
+            </div>
+          </div>
+          {{#if job_title}}
+            <div class="card-block">
+              <div class="card-block-content">
+                <h3>I work as
+                  {{job_title}}
+                  {{#if company_name}}
+                    in
+                    {{company_name}}
+                  {{/if}}
+                </h3>
+              </div>
+            </div>
+          {{/if}}
+          {{#if description}}
+            {{#each description}}
+              <div class="card-block">
+                <div class="card-block-content">
+                  <h3>{{this}}</h3>
+                </div>
+              </div>
+            {{/each}}
+          {{/if}}
+          {{#if email}}
+            <div class="card-block block-stretch">
+              <div class="card-block-content">
+                <h3>My Email:
+                  <a href="mailto:{{email}}">{{email}}</a></h3>
+              </div>
+            </div>
+          {{/if}}
+          {{#if phone}}
+            <div class="card-block">
+              <div class="card-block-content">
+                <h3>Phone number:
+                  <a href="tel:{{phone}}">{{phone}}</a></h3>
+              </div>
+            </div>
+          {{/if}}
+          {{#if telegram}}
+            <div class="card-block">
+              <div class="card-block-content">
+                <h3>Telegram:
+                  <a href="https://t.me/{{telegram}}">{{telegram}}</a></h3>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+      </div>
+      <div class="right-container">
+        <h3 id="qr-title">Scan QR-code and get access to this card!</h3>
+        <div id="qrcode"></div>
+      </div>
+    </section>
+    <script src="/js/qrcode.js"></script>
+    <script src="/js/card.js"></script>
+  </body>
+</html>
