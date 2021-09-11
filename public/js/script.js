@@ -19,7 +19,7 @@ const descriptionInput = document.querySelector("#descriptionInput");
 const emailInput = document.querySelector("#emailInput");
 const numberInput = document.querySelector("#numberInput");
 const description = document.querySelector("#description");
-
+let activeInput;
 var QR_CODE = new QRCode("qrcode", {
   width: 220,
   height: 220,
@@ -206,7 +206,7 @@ function showReadyCardContainer() {
 }
 cardTitleContainer.addEventListener("mousemove", (e) => {
   let xAxis = (window.innerWidth / 1.5 - e.pageX) / 25;
-  let yAxis = (window.innerHeight / 1.5 - e.pageY) / 25;
+  let yAxis = (window.innerHeight / 1.5 - e.pageY) / 50;
   cardTitleEl.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
 });
 cardTitleContainer.addEventListener("mouseenter", (e) => {
@@ -224,4 +224,14 @@ cardTitleContainer.addEventListener("mouseleave", (e) => {
   });
 
   cardTitleEl.style.transform = "rotateY(0deg) rotateX(0deg)";
+});
+
+cardContainer.addEventListener("click", (e) => {
+  if (e.target.getAttribute("placeholder")) {
+    if (activeInput) {
+      activeInput.classList.remove("active");
+    }
+    activeInput = e.target.closest(".card-block");
+    activeInput.classList.add("active");
+  }
 });

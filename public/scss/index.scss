@@ -11,6 +11,8 @@ body {
   background: colors.$title-background;
   transition: background-color 1s ease;
   perspective: 1000px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 .container {
   scroll-snap-type: y mandatory;
@@ -138,11 +140,15 @@ body {
     padding: 1rem 2rem 1rem 1.5rem;
     text-align: left;
     margin-bottom: 1rem;
+    max-width: 100%;
     background: colors.$title-card-block-background;
     border-radius: 1.5rem;
     color: colors.$card-text-color;
     border: 1px solid rgba(255, 255, 255, 0.2);
-
+    transition: transform 0.2s ease;
+    &.active {
+      transform: scale(1.05);
+    }
     h3 {
       display: inline;
       font-weight: 400;
@@ -251,5 +257,120 @@ body {
   &.hidden {
     visibility: hidden;
     display: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  #title-container {
+    .card-title-container {
+      margin-right: 1vw;
+    }
+  }
+}
+@media (max-width: 1150px) {
+  #title-container {
+    .title {
+      font-size: 3rem;
+    }
+    .subtitle {
+      font-size: 2rem;
+    }
+    .card-title-container {
+      margin-right: 0vw;
+      width: 50vw;
+    }
+  }
+}
+@media (max-width: 900px) {
+  #title-container {
+    .title {
+      font-size: 2.5rem;
+    }
+    .subtitle {
+      font-size: 1.5rem;
+    }
+    .card-title-container {
+      margin-right: 0vw;
+      width: 80vw;
+    }
+  }
+}
+@media (max-width: 700px) {
+  #title-container {
+    flex-direction: column;
+    justify-content: center;
+    .title-wrap {
+      margin: 1.5rem 0 2rem;
+      text-align: center;
+      .title {
+        font-size: 2rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+    .card-title-container {
+      width: 100vw;
+      .glass-card {
+        width: 90%;
+        font-size: 1rem;
+      }
+      .circle1 {
+        display: none;
+      }
+      .circle2 {
+        display: none;
+      }
+    }
+  }
+  #generate-card-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-wrapper {
+      width: 90%;
+      .circle1 {
+        display: none;
+      }
+      .circle2 {
+        display: none;
+      }
+    }
+    .glass-card {
+      width: 100%;
+      .card-block-content {
+        flex-direction: column;
+      }
+      h3 {
+        display: block;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+  }
+  #ready-card-container {
+    min-height: 120vh;
+    padding: 2rem 0;
+    margin-top: 5rem;
+    scroll-snap-align: top;
+    scroll-snap-stop: always;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .left {
+      width: 90%;
+      .glass-card {
+        width: 100%;
+      }
+    }
+    .right {
+      width: 100%;
+      padding: 0rem 1rem;
+    }
   }
 }
