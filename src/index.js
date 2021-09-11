@@ -40,6 +40,8 @@ app.get("/:id", async (req, res) => {
         phone: card.phone,
         email: card.email,
         telegram: card.telegram,
+        instagram: card.instagram,
+        link: card.link,
       });
     } else {
       res.status(404).redirect("/");
@@ -48,7 +50,23 @@ app.get("/:id", async (req, res) => {
     res.status(404).redirect("/");
   }
 });
-
+app.post("/supplement/:id", async (req, res) => {
+  try {
+    const card = await CardModel.findById(req.params.id);
+    if (card) {
+      const { supplement, value } = req.body;
+      card[supplement] = value;
+      try {
+        await card.save();
+        res.status(200).send(card);
+      } catch (err) {
+        res.status(500).send({ err });
+      }
+    }
+  } catch (err) {
+    res.status(500).send({ err });
+  }
+});
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
 });

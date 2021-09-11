@@ -4,13 +4,18 @@ const titleWrapper = document.querySelector(".title-wrap");
 
 const readyCardContainer = document.querySelector("#ready-card-container");
 const cardTitleContainer = document.querySelector(".card-title-container");
-
 const cardTitleEl = cardTitleContainer.querySelector(".glass-card");
 const cardTitleBlocks = cardTitleEl.querySelectorAll(".card-block");
 const body = document.querySelector("body");
 const card = document.querySelector("#generate-card");
 const submitBtn = document.querySelector(".submit-btn");
-
+const supplementButtons = document.querySelector(".supplements-containter");
+const buttonsContainer = document.querySelector("#buttons-container");
+const supplementsInput = document.querySelector("#supplementsInput");
+const supplementsInputContainer = supplementButtons.querySelector(".input");
+const supplementAddButton = supplementButtons.querySelector(
+  "#add-supplement-button"
+);
 //card information elements
 const nameInput = document.querySelector("#nameInput");
 const jobInput = document.querySelector("#jobInput");
@@ -20,6 +25,8 @@ const emailInput = document.querySelector("#emailInput");
 const numberInput = document.querySelector("#numberInput");
 const description = document.querySelector("#description");
 let activeInput;
+let supplementInputOption;
+let currentCardId;
 var QR_CODE = new QRCode("qrcode", {
   width: 220,
   height: 220,
@@ -188,10 +195,17 @@ submitBtn.addEventListener("click", async (e) => {
   sendCard()
     .then((result) => {
       QR_CODE.makeCode(document.URL + result._id);
-      readyCardContainer.querySelector(".left").innerHTML = "";
+      currentCardId = result._id;
+      if (readyCardContainer.querySelector(".glass-card")) {
+        readyCardContainer
+          .querySelector(".left")
+          .removeChild(readyCardContainer.querySelector(".glass-card"));
+      }
+
+      console.log(supplementButtons);
       readyCardContainer
         .querySelector(".left")
-        .appendChild(createResultCard(result));
+        .insertBefore(createResultCard(result), supplementButtons);
       showReadyCardContainer();
     })
     .catch((err) => {
@@ -203,6 +217,30 @@ function showReadyCardContainer() {
   readyCardContainer.scrollIntoView({
     behavior: "smooth",
   });
+}
+
+async function addSupplement(supplement, value) {
+  return await fetch(`/supplement/${currentCardId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      supplement,
+      value,
+    }),
+  }).then((res) => res.json());
+}
+function addBlock(value) {
+  const readyCard = readyCardContainer.querySelector(".glass-card");
+  const block = document.createElement("div");
+  block.classList.add("card-block");
+  block.innerHTML = `
+  <div class="card-block-content">
+  ${value}
+</div>
+  `;
+  readyCard.appendChild(block);
 }
 cardTitleContainer.addEventListener("mousemove", (e) => {
   let xAxis = (window.innerWidth / 1.5 - e.pageX) / 25;
@@ -234,4 +272,50 @@ cardContainer.addEventListener("click", (e) => {
     activeInput = e.target.closest(".card-block");
     activeInput.classList.add("active");
   }
+});
+buttonsContainer.addEventListener("click", (e) => {
+  if (e.target.closest("button")) {
+    supplementsInputContainer.classList.remove("hidden");
+    let supplement = e.target.id.split("-")[1];
+    supplementInputOption = supplement;
+    switch (supplement) {
+      case "telegram":
+        supplementsInput.value = "";
+        supplementsInput.placeholder = "Add Telegram...";
+        break;
+      case "instagram":
+        supplementsInput.value = "";
+        supplementsInput.placeholder = "Add Instagram...";
+        break;
+      case "link":
+        supplementsInput.value = "";
+        supplementsInput.placeholder = "Add Link...";
+        break;
+    }
+  }
+});
+supplementAddButton.addEventListener("click", async (e) => {
+  console.log(supplementsInput.value);
+  const res = await addSupplement(
+    supplementInputOption,
+    supplementsInput.value
+  );
+  if (res._id) {
+    switch (supplementInputOption) {
+      case "telegram":
+        addBlock(
+          `<h3>Telegram: <a href="https://t.me/${res.telegram}">@${res.telegram}</a></h3>`
+        );
+        break;
+      case "instagram":
+        addBlock(
+          `<h3>Instagram: <a href="https://instagram.com/${res.instagram}">@${res.instagram}</a></h3>`
+        );
+        break;
+      case "link":
+        addBlock(`<h3>Website: <a href="${res.link}">${res.link}</a></h3>`);
+        break;
+    }
+  }
+  console.log(res);
 });

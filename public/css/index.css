@@ -238,10 +238,71 @@ body {
   padding: 2rem 2rem;
 }
 #ready-card-container .left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 40%;
 }
 #ready-card-container .left .glass-card {
   width: 80%;
+  margin-bottom: 1rem;
+}
+#ready-card-container .left .supplements-containter {
+  display: visible;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+#ready-card-container .left .supplements-containter .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+#ready-card-container .left .supplements-containter .input {
+  display: flex;
+  width: 100%;
+}
+#ready-card-container .left .supplements-containter .input.hidden {
+  display: none;
+}
+#ready-card-container .left .supplements-containter .input input {
+  width: 90%;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right bottom, white, rgba(255, 255, 255, 0.2));
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+  color: #6c415e;
+  transition: box-shadow 0.5s ease;
+}
+#ready-card-container .left .supplements-containter .input input::placeholder {
+  color: #757575;
+}
+#ready-card-container .left .supplements-containter .input input:focus {
+  outline: none;
+  box-shadow: inset 9px 9px 18px #f0d5dc, inset -9px -9px 18px #f0d5dc;
+}
+#ready-card-container .left .supplements-containter .input button {
+  border-radius: 1rem;
+  height: auto;
+  padding: 1rem 1rem;
+}
+#ready-card-container .left .supplements-containter button {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  transition: all 0.2s ease;
+}
+#ready-card-container .left .supplements-containter button:hover {
+  transform: scale(1.1);
 }
 #ready-card-container .right {
   display: flex;
@@ -346,22 +407,21 @@ body {
   }
 
   #ready-card-container {
-    min-height: 120vh;
+    min-height: 100vh;
     padding: 2rem 0;
-    margin-top: 5rem;
+    margin-top: 2rem;
     scroll-snap-align: top;
     scroll-snap-stop: always;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
   }
   #ready-card-container .left {
     width: 90%;
   }
-  #ready-card-container .left .glass-card {
-    width: 100%;
-  }
   #ready-card-container .right {
+    margin-top: 2rem;
+    text-align: center;
     width: 100%;
     padding: 0rem 1rem;
   }

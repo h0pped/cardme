@@ -232,6 +232,7 @@ body {
   }
 }
 #ready-card-container {
+  $p: &;
   scroll-snap-align: center;
   scroll-snap-stop: always;
   min-height: 100vh;
@@ -239,10 +240,74 @@ body {
   justify-content: space-evenly;
   align-items: center;
   padding: 2rem 2rem;
+
   .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 40%;
     .glass-card {
       width: 80%;
+      margin-bottom: 1rem;
+    }
+    .supplements-containter {
+      display: visible;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      .buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .input {
+        display: flex;
+        width: 100%;
+
+        &.hidden {
+          display: none;
+        }
+        input {
+          width: 90%;
+          margin-right: 0.5rem;
+          border: none;
+          border-radius: 10px;
+          background: colors.$title-card-block-background;
+          padding: 0.5rem 0.5rem 0.5rem 1rem;
+          font-size: 1.2rem;
+          margin-left: 0.5rem;
+          color: colors.$card-text-color;
+          transition: box-shadow 0.5s ease;
+          &::placeholder {
+            color: #757575;
+          }
+          &:focus {
+            outline: none;
+            box-shadow: inset 9px 9px 18px #f0d5dc, inset -9px -9px 18px #f0d5dc;
+          }
+        }
+        button {
+          border-radius: 1rem;
+          height: auto;
+          padding: 1rem 1rem;
+        }
+      }
+
+      button {
+        border-radius: 50%;
+        height: 5rem;
+        width: 5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: colors.$title-card-circles-background;
+        transition: all 0.2s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
     }
   }
   .right {
@@ -354,21 +419,20 @@ body {
     }
   }
   #ready-card-container {
-    min-height: 120vh;
+    min-height: 100vh;
     padding: 2rem 0;
-    margin-top: 5rem;
+    margin-top: 2rem;
     scroll-snap-align: top;
     scroll-snap-stop: always;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     .left {
       width: 90%;
-      .glass-card {
-        width: 100%;
-      }
     }
     .right {
+      margin-top: 2rem;
+      text-align: center;
       width: 100%;
       padding: 0rem 1rem;
     }

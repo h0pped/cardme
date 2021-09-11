@@ -5,39 +5,44 @@ const CardSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
-    default: "Unknown",
     trim: true,
+    default: "",
   },
   job_title: {
     type: String,
     trim: true,
+    default: "",
   },
   company_name: {
     type: String,
     trim: true,
+    default: "",
   },
   description: {
     type: String,
     trim: true,
+    default: "",
   },
   email: {
     type: String,
-    validate: {
-      validator: validator.isEmail,
-      message: "{VALUE} is not a valid email",
-      isAsync: false,
-    },
+    default: "",
   },
   phone: {
     type: String,
-    validate: {
-      validator: validator.isMobilePhone,
-      message: "{VALUE} is not a valid phone number",
-      isAsync: false,
-    },
+    required: false,
+    default: "",
   },
   telegram: {
     type: String,
+    default: "",
+  },
+  instagram: {
+    type: String,
+    default: "",
+  },
+  link: {
+    type: String,
+    default: "",
   },
 });
 const CardModel = mongoose.model("Card", CardSchema);

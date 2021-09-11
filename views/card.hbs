@@ -65,7 +65,25 @@
             <div class="card-block">
               <div class="card-block-content">
                 <h3>Telegram:
-                  <a href="https://t.me/{{telegram}}">{{telegram}}</a></h3>
+                  <a href="https://t.me/{{telegram}}">@{{telegram}}</a></h3>
+              </div>
+            </div>
+          {{/if}}
+          {{#if instagram}}
+            <div class="card-block">
+              <div class="card-block-content">
+                <h3>Instagram:
+                  <a
+                    href="https://instagram.com/{{instagram}}"
+                  >@{{instagram}}</a></h3>
+              </div>
+            </div>
+          {{/if}}
+          {{#if link}}
+            <div class="card-block">
+              <div class="card-block-content">
+                <h3>
+                  <a href="{{link}}">Website</a></h3>
               </div>
             </div>
           {{/if}}
