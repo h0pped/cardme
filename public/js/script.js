@@ -3,6 +3,10 @@ const titleContainer = document.querySelector("#title-container");
 const titleWrapper = document.querySelector(".title-wrap");
 
 const readyCardContainer = document.querySelector("#ready-card-container");
+const cardTitleContainer = document.querySelector(".card-title-container");
+
+const cardTitleEl = cardTitleContainer.querySelector(".glass-card");
+const cardTitleBlocks = cardTitleEl.querySelectorAll(".card-block");
 const body = document.querySelector("body");
 const card = document.querySelector("#generate-card");
 const submitBtn = document.querySelector(".submit-btn");
@@ -178,68 +182,6 @@ const createResultCard = (data) => {
   </div>
   `;
   return cardEl;
-  /*
-   <div id="ready-card-container" class="hidden">
-        <div class="left">
-
-          <div class="card">
-            <div class="card-block">
-              <div class="card-block-content">
-                <h3>Hello!</h3>
-              </div>
-            </div>
-            <div class="card-block">
-              <div class="card-block-content">
-                <h3>My name is Illia</h3>
-              </div>
-            </div>
-            <div class="card-block">
-              <div class="card-block-content">
-                <h3>I am Digital Assistant At Google</h3>
-              </div>
-
-            </div>
-            <div class="card-block">
-              <div class="card-block-content">
-                <h3>I help people to manage their tasks in a specific way</h3>
-              </div>
-            </div>
-            <div class="card-block">
-              <div class="card-block-content">
-                <h3>
-                  Also I like dogs :)
-                </h3>
-              </div>
-            </div>
-            <div class="card-block block-stretch">
-              <div class="card-block-content">
-                <h3>My Email:
-                  <a
-                    href="mailto:notawril@gmail.com"
-                  >notawril@gmail.com</a></h3>
-              </div>
-            </div>
-            <div class="card-block">
-              <div class="card-block-content">
-                <h3>Phone number:
-                  <a href="tel:+380958539914">+380958539114</a></h3>
-
-              </div>
-            </div>
-
-          </div>
-          <div id="add-links-container">
-            <button id="add-link-btn" class="links-button">
-              Add link
-            </button>
-            <button id="add-telegram-btn" class="links-button">
-              Add Telegram
-            </button>
-            <button id="add-whatsapp-btn" class="links-button">
-              Add WhatsApp
-            </button>
-          </div>
-        </div>*/
 };
 submitBtn.addEventListener("click", async (e) => {
   console.log("AAA");
@@ -262,3 +204,24 @@ function showReadyCardContainer() {
     behavior: "smooth",
   });
 }
+cardTitleContainer.addEventListener("mousemove", (e) => {
+  let xAxis = (window.innerWidth / 1.5 - e.pageX) / 25;
+  let yAxis = (window.innerHeight / 1.5 - e.pageY) / 25;
+  cardTitleEl.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+});
+cardTitleContainer.addEventListener("mouseenter", (e) => {
+  cardTitleEl.style.transition = "none";
+
+  // Popout
+  cardTitleBlocks.forEach((el) => {
+    el.style.transform = "translateZ(50px) ";
+  });
+});
+cardTitleContainer.addEventListener("mouseleave", (e) => {
+  cardTitleEl.style.transition = "all 0.5s ease";
+  cardTitleBlocks.forEach((el) => {
+    el.style.transform = "translateZ(0px)";
+  });
+
+  cardTitleEl.style.transform = "rotateY(0deg) rotateX(0deg)";
+});

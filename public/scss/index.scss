@@ -10,6 +10,7 @@ body {
   font-family: fonts.$font-family;
   background: colors.$title-background;
   transition: background-color 1s ease;
+  perspective: 1000px;
 }
 .container {
   scroll-snap-type: y mandatory;
@@ -38,14 +39,24 @@ body {
   }
 
   .card-title-container {
-    width: 30vw;
-    margin-right: 10vw;
+    width: 40vw;
+    margin-right: 5vw;
     position: relative;
-
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1rem 0;
     z-index: 999;
     opacity: 1;
+
     .glass-card {
-      width: 100%;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      width: 70%;
+      transition: all 0.5s ease;
+      .card-block {
+        transition: all 0.2s ease;
+      }
     }
 
     .circle1,
@@ -59,11 +70,11 @@ body {
     }
     .circle1 {
       top: -5%;
-      left: -20%;
+      left: 5%;
     }
     .circle2 {
       bottom: -5%;
-      right: -20%;
+      right: 5%;
     }
   }
 
