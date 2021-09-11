@@ -366,5 +366,11 @@ body {
     padding: 0rem 1rem;
   }
 }
+@media only screen and (hover: none) and (pointer: coarse) {
+  .container {
+    scroll-snap-type: none;
+    overflow-y: scroll;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */
