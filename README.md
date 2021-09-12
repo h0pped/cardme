@@ -6,7 +6,7 @@
 
 ![Main-page.png](https://raw.githubusercontent.com/h0pped/cardme/main/public/readme/main-page.png)
 
-![main-page.png](https://raw.githubusercontent.com/h0pped/cardme/main/public/readme/card-page.png)
+![main-page.png](https://raw.githubusercontent.com/h0pped/cardme/main/public/readme/qr-page.png)
 
 **Used Technologies:**
 
