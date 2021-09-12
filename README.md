@@ -16,7 +16,7 @@
  - HTML&CSS
  - SASS
  - Vanilla JS for the front-back side
- - **[QRCode.JS](https://davidshimjs.github.io/qrcodejs/)
+ - [QRCode.JS](https://davidshimjs.github.io/qrcodejs/)
  - Figma
 
 
