@@ -90,13 +90,17 @@ body {
 }
 #generate-card-container {
   min-height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start end;
   scroll-snap-stop: always;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  h2 {
+    margin-top: 1rem;
+  }
   .glass-card {
-    margin: 5rem 0;
+    margin: 2.5rem 0;
   }
   .card-wrapper {
     position: relative;

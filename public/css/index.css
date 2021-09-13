@@ -94,14 +94,18 @@ body {
 
 #generate-card-container {
   min-height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start end;
   scroll-snap-stop: always;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+#generate-card-container h2 {
+  margin-top: 1rem;
+}
 #generate-card-container .glass-card {
-  margin: 5rem 0;
+  margin: 2.5rem 0;
 }
 #generate-card-container .card-wrapper {
   position: relative;
