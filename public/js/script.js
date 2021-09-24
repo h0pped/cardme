@@ -243,9 +243,9 @@ function addBlock(value) {
   readyCard.appendChild(block);
 }
 cardTitleContainer.addEventListener("mousemove", (e) => {
-  let xAxis = (window.innerWidth / 1.5 - e.pageX) / 25;
-  let yAxis = (window.innerHeight / 1.5 - e.pageY) / 50;
-  cardTitleEl.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+  let xAxis = (window.innerWidth / 1.4 - e.pageX) / 20;
+  let yAxis = (window.innerHeight / 1.4 - e.pageY) / 20;
+  cardTitleEl.style.transform = `rotateY(${-xAxis}deg) rotateX(${yAxis}deg)`;
 });
 cardTitleContainer.addEventListener("mouseenter", (e) => {
   cardTitleEl.style.transition = "none";
@@ -260,8 +260,6 @@ cardTitleContainer.addEventListener("mouseleave", (e) => {
   cardTitleBlocks.forEach((el) => {
     el.style.transform = "translateZ(0px)";
   });
-
-  cardTitleEl.style.transform = "rotateY(0deg) rotateX(0deg)";
 });
 
 cardContainer.addEventListener("click", (e) => {
